@@ -60,18 +60,10 @@ gulp.task('bim', function () {
       '*.jpg': [{
         //average laptop screen
         width: 1680,
-        quality: 44,
+        quality: 33,
         progressive: true,
         rename: {
-          suffix: '-1680'
-        }
-      }, {
-        //fullHD
-        width: 1920,
-        quality: 69,
-        progressive: true,
-        rename: {
-          suffix: '-1920'
+          prefix: 'islander-1680-'
         }
       }]
     }))
