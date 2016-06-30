@@ -6,8 +6,8 @@ var responsive   = require('gulp-responsive');
 
 // Reponsive sizing
 // OK?
-gulp.task('jpgs', function () {
-  return gulp.src('./_src/jpg2responsive/*.jpg')
+gulp.task('default', function () {
+  return gulp.src('./BOWL/*.jpg')
     .pipe(responsive({
       '*.jpg': [{
         //nexus5
@@ -44,5 +44,5 @@ gulp.task('jpgs', function () {
         }
       }]
     }))
-    .pipe(gulp.dest('./_done/jpg2responsive'));
+    .pipe(gulp.dest('./BAM/'));
 });
