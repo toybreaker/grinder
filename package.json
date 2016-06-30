@@ -5,6 +5,7 @@
   "main": "gulpfile.js",
   "devDependencies": {
     "gulp": "^3.9.1",
+    "gulp-imagemin": "^3.0.1",
     "gulp-responsive": "^2.4.0"
   },
   "scripts": {
