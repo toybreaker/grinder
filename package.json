@@ -4,16 +4,8 @@
   "description": "image stock grinder",
   "main": "gulpfile.js",
   "devDependencies": {
-    "change-case": "^2.3.1",
-    "gm": "^1.21.1",
-    "gulp": "^3.8.10",
-    "gulp-filter": "^2.0.2",
-    "gulp-image-resize": "^0.7.1",
-    "gulp-imagemin": "^2.3.0",
-    "gulp-rename": "^1.2.2",
-    "gulp-responsive": "^1.2.1",
-    "gulp-sharp": "^0.1.0",
-    "imagemin-pngquant": "^4.2.0"
+    "gulp": "^3.9.1",
+    "gulp-responsive": "^2.4.0"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
