@@ -5,7 +5,7 @@ var responsive   = require('gulp-responsive');
 
 
 // Reponsive sizing
-// OK?
+// OK
 gulp.task('default', function () {
   return gulp.src('./BOWL/*.jpg')
     .pipe(responsive({
