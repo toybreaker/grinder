@@ -11,4 +11,9 @@ _Note:_ gulp-responsive depends on [sharp](https://github.com/lovell/sharp). Sha
 
 **How to use it?**
 ---
-download/clone, npm install, copy jpegs > BIM, gulp, look in BUM for grinded ones, and in BAM for squeezed ones!
+- download/clone
+- npm install
+- copy jpegs > BIM
+- gulp
+- look in BUM for grinded ones
+- and in BAM for squeezed ones!
