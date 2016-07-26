@@ -4,14 +4,8 @@ var gulp         = require('gulp');
 var responsive   = require('gulp-responsive');
 var imagemin     = require('gulp-imagemin');
 
-gulp.task('bum', () =>
-    gulp.src('./BUM/*')
-        .pipe(imagemin())
-        .pipe(gulp.dest('./BAM'))
-);
 
-// Reponsive sizing
-// OK
+// Reponsive sizing DEFAULT
 gulp.task('default', function () {
   return gulp.src('./BIM/*.jpg')
     .pipe(responsive({
@@ -53,7 +47,7 @@ gulp.task('default', function () {
     .pipe(gulp.dest('./BAM/'));
 });
 
-
+// variations on DEFAULT gulp task
 gulp.task('bim', function () {
   return gulp.src('./BIM/*.jpg')
     .pipe(responsive({
@@ -69,3 +63,10 @@ gulp.task('bim', function () {
     }))
     .pipe(gulp.dest('./BUM/'));
 });
+
+// SQUEEZE 'em
+gulp.task('bum', () =>
+    gulp.src('./BUM/*')
+        .pipe(imagemin())
+        .pipe(gulp.dest('./BAM'))
+);
