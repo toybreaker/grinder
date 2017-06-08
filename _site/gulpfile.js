@@ -47,26 +47,7 @@ gulp.task('default', function () {
     .pipe(gulp.dest('./BAM/'));
 });
 
-
-
-// make Fumes thumbs smaller
-gulp.task('fumes', function () {
-  return gulp.src('./BIM/*.jpg')
-    .pipe(responsive({
-      '*.jpg': [{
-        //tinythumbs
-        width: 180,
-        quality: 61,
-        progressive: true,
-        sharper: true
-      }]
-    }))
-    .pipe(gulp.dest('./BAM/'));
-});
-
-
-
-// variations on DEFAULT gulp task for LANDI
+// variations on DEFAULT gulp task
 gulp.task('bim', function () {
   return gulp.src('./BIM/*.jpg')
     .pipe(responsive({
@@ -76,7 +57,7 @@ gulp.task('bim', function () {
         quality: 33,
         progressive: true,
         rename: {
-          prefix: 'raku-1680-'
+          prefix: 'islander-1680-'
         }
       }]
     }))
