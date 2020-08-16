@@ -8,7 +8,7 @@ Currently using:
 
 - [del](https://github.com/sindresorhus/del)
 
-- [change-case](https://github.com/blakeembrey/change-case)
+- [change-case-all](https://github.com/btxtiger/change-case-all)
 
 
 _Note:_ gulp-responsive depends on [sharp](https://github.com/lovell/sharp). Sharp is one of the fastest Node.js modules for resizing JPEG, PNG, WebP and TIFF images.
