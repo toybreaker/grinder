@@ -1,4 +1,8 @@
-**Image processor.** Outputs responsive image sets to use with _srcset_
+# Grinder
+
+![eat my images, you photoshop alternative!](/piranha.png)
+
+Image processor that outputs responsive image sets to use with _srcset_
 
 Currently using:
 
