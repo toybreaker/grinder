@@ -1,5 +1,7 @@
 node_modules
-_input
-_output
+_input/_images_to_lowercase/*.*
+_input/_images_to_rename/*.*
+_input/_images_to_size/*.*
+_output/*.*
 __LAB
 .DS_Store
