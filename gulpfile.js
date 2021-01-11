@@ -38,6 +38,20 @@ gulp.task('rename_images', function (done) {
   .pipe(gulp.dest('./_output/'));
 });
 
+// WHAT: delete the original file name + name them using index.
+// to avoid single digit no. to the first 9 jpgs, start from 10, intead of 0 or 1
+var index = 1;
+gulp.task('rename_simple', function (done) {
+  // put image folders w/ proper name into _images_to_rename
+  return gulp.src('./_input/_images_to_rename/**/*.*')
+  .pipe(rename(function (path) {
+    // prefix w/ folder name + suffix w/ index (starting at 10!)
+    path.basename =  (index++);
+  }))
+  // output to _images_to_process folder for next step
+  .pipe(gulp.dest('./_output/'));
+});
+
 // Reponsive sizing w/ gulp4
 // NOTE: Does transfer folder and lowercase the jpgs names
 // OK!
@@ -100,6 +114,77 @@ gulp.task('size_images', function (done) {
   done();
 });
 
+// Reponsive sizing w/ gulp4
+// NOTE: Does transfer folder and lowercase the jpgs names
+// OK!
+gulp.task('size_1k', function (done) {
+  return gulp.src('./_input/_images_to_size/**/*.*')
+    .pipe(rename(function(fix) {
+       fix.basename = changeCase.lowerCase(fix.basename);
+     }))
+     .pipe(rename(function(fix) {
+       fix.extname = '.jpg';
+     }))
+    .pipe(responsive({
+      '**/*.jpg': [{
+        //single image
+        width: 1000,
+        quality: 22,
+        sharper: true,
+        progressive: true
+      }],
+    }, {
+      // global configuration for all images
+      errorOnEnlargement: false,
+      withMetadata: false,
+      withoutEnlargement: false,
+      //try this, sometimes doesn't work
+      //withoutChromaSubsampling: true
+    }))
+    // this is needed otherwise it outputs .jpeg, gosh...
+    .pipe(rename(function(fix) {
+      fix.extname = '.jpg';
+    }))
+    // puy jpgs ready in place for SSG to use
+    .pipe(gulp.dest('./_output/'));
+  done();
+});
+
+
+gulp.task('size_1khi', function (done) {
+  return gulp.src('./_input/_images_to_size/**/*.*')
+    .pipe(rename(function(fix) {
+       fix.basename = changeCase.lowerCase(fix.basename);
+     }))
+     .pipe(rename(function(fix) {
+       fix.extname = '.jpg';
+     }))
+    .pipe(responsive({
+      '**/*.jpg': [{
+        //single image
+        width: 1000,
+        quality: 44,
+        sharper: true,
+        progressive: true
+      }],
+    }, {
+      // global configuration for all images
+      errorOnEnlargement: false,
+      withMetadata: false,
+      withoutEnlargement: false,
+      //try this, sometimes doesn't work
+      //withoutChromaSubsampling: true
+    }))
+    // this is needed otherwise it outputs .jpeg, gosh...
+    .pipe(rename(function(fix) {
+      fix.extname = '.jpg';
+    }))
+    // puy jpgs ready in place for SSG to use
+    .pipe(gulp.dest('./_output/'));
+  done();
+});
+
+
 // Rename all to lowercase w/ gulp4
 // OK! (is this used in other tasks? ops, i forgot!)
 gulp.task(function lowercase(done) {
@@ -140,6 +225,9 @@ gulp.task('lower', gulp.series(['lowercase', 'delete_images_to_lowercase_dir_con
 
 // Produce all the different sizes images + del
 gulp.task('sizes', gulp.series(['size_images', 'delete_images_to_size_dir_content']));
+
+// Produce all the different sizes images + del
+gulp.task('size1k', gulp.series(['size_1k', 'delete_images_to_size_dir_content']));
 
 // Rename images with dir name and progressive index + del
 gulp.task('rename', gulp.series(['rename_images', 'delete_images_to_rename_dir_content']));
