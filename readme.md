@@ -66,6 +66,22 @@ Put images into ```_input/_images_to_rename/``` then run:
 gulp rename_images
 ```
 
+### **(rename_simple)** Rename images without dir name.
+
+**WHAT:**
+Changes the original file name and name images starting from 1.jpg.  
+To avoid single digit no. for the first 9 jpgs, set ```var index = 10;``` in the gulpfile.js.
+
+**HOW:**
+Put images into ```_input/_images_to_rename/``` then run:
+
+```sh
+gulp rename_images
+```
+
+
+
+
 ## Tasks to produce a single sized image
 
 ### **(size_1k)** produces single image
