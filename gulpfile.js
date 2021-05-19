@@ -163,7 +163,7 @@ gulp.task('size_1khi', function (done) {
       '**/*.jpg': [{
         //single image
         width: 1000,
-        quality: 44,
+        quality: 39,
         sharper: true,
         progressive: true
       }],
@@ -183,6 +183,76 @@ gulp.task('size_1khi', function (done) {
     .pipe(gulp.dest('./_output/'));
   done();
 });
+
+
+
+gulp.task('size_2khi', function (done) {
+  return gulp.src('./_input/_images_to_size/**/*.*')
+    .pipe(rename(function(fix) {
+       fix.basename = changeCase.lowerCase(fix.basename);
+     }))
+     .pipe(rename(function(fix) {
+       fix.extname = '.jpg';
+     }))
+    .pipe(responsive({
+      '**/*.jpg': [{
+        //single image
+        width: 2000,
+        quality: 39,
+        sharper: true,
+        progressive: true
+      }],
+    }, {
+      // global configuration for all images
+      errorOnEnlargement: false,
+      withMetadata: false,
+      withoutEnlargement: false,
+      //try this, sometimes doesn't work
+      //withoutChromaSubsampling: true
+    }))
+    // this is needed otherwise it outputs .jpeg, gosh...
+    .pipe(rename(function(fix) {
+      fix.extname = '.jpg';
+    }))
+    // puy jpgs ready in place for SSG to use
+    .pipe(gulp.dest('./_output/'));
+  done();
+});
+
+//used for vertical 1333x2000px images
+gulp.task('size_2kvhi', function (done) {
+  return gulp.src('./_input/_images_to_size/**/*.*')
+    .pipe(rename(function(fix) {
+       fix.basename = changeCase.lowerCase(fix.basename);
+     }))
+     .pipe(rename(function(fix) {
+       fix.extname = '.jpg';
+     }))
+    .pipe(responsive({
+      '**/*.jpg': [{
+        //single image
+        width: 1333,
+        quality: 39,
+        sharper: true,
+        progressive: true
+      }],
+    }, {
+      // global configuration for all images
+      errorOnEnlargement: false,
+      withMetadata: false,
+      withoutEnlargement: false,
+      //try this, sometimes doesn't work
+      //withoutChromaSubsampling: true
+    }))
+    // this is needed otherwise it outputs .jpeg, gosh...
+    .pipe(rename(function(fix) {
+      fix.extname = '.jpg';
+    }))
+    // puy jpgs ready in place for SSG to use
+    .pipe(gulp.dest('./_output/'));
+  done();
+});
+
 
 
 // Rename all to lowercase w/ gulp4

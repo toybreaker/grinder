@@ -69,7 +69,7 @@ gulp rename_images
 ### **(rename_simple)** Rename images without dir name.
 
 **WHAT:**
-Changes the original file name and name images starting from 1.jpg.  
+Changes the original file name and name images starting from 1.jpg.
 To avoid single digit no. for the first 9 jpgs, set ```var index = 10;``` in the gulpfile.js.
 
 **HOW:**
@@ -97,16 +97,41 @@ gulp size_1k
 ```
 
 
-### **(size_1khi)** produces single image
+### **(size_1khi)** produces single 1k wide image
 
 **WHAT:**
 Output 1000px wide jpgs of higher quality (44).
 
 **HOW:**
-Put images into ```_input/_images_to_rename/``` then run:
+Put images into ```_input/_images_to_size/``` then run:
 
 ```sh
 gulp size_1khi
+```
+
+### **(size_2khi)** produces single 2k wide image
+
+**WHAT:**
+Output 2000px wide jpgs of higher quality (44).
+
+**HOW:**
+Put images into ```_input/_images_to_size/``` then run:
+
+```sh
+gulp size_1khi
+```
+
+
+### **(size_2kvhi)** produces single 1.3k wide image
+
+**WHAT:**
+Output 1333px wide (usually used for 2000px tall images) jpgs of higher quality (44).
+
+**HOW:**
+Put images into ```_input/_images_to_size/``` then run:
+
+```sh
+gulp size_2kvhi
 ```
 
 
