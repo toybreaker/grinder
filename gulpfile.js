@@ -7,6 +7,63 @@ var responsive   = require('gulp-responsive');
 var del          = require('del');
 
 
+// testing AVIF genaration (not working)
+const { src, dest } = require("gulp");
+const sharpResponsive = require("gulp-sharp-responsive");
+
+const jpgavif = () => src("./_input/_images_to_size/**/*.jpg")
+  .pipe(sharpResponsive({
+    formats: [
+      // jpeg
+      { width: 640,
+        format: "jpeg",
+        rename: { suffix: "-640" }
+      },{
+        width: 880,
+        format: "jpeg",
+        rename: { suffix: "-880" }
+      },{
+        width: 1024,
+        format: "jpeg",
+        rename: { suffix: "-1024" }
+      },{
+        width: 1920,
+        format: "jpeg",
+        rename: { suffix: "-1920" }
+      },{
+        width: 1024,
+        format: "jpeg"
+      },
+      // avif
+      { width: 640,
+        format: "avif",
+        rename: { suffix: "-640" }
+      },{
+        width: 880,
+        format: "avif",
+        rename: { suffix: "-880" }
+      },{
+        width: 1024,
+        format: "avif",
+        rename: { suffix: "-1024" }
+      },{
+        width: 1920,
+        format: "avif",
+        rename: { suffix: "-1920" }
+      },{
+        width: 1024,
+        format: "avif"
+      }
+    ]
+  }))
+  .pipe(dest("./_output/"));
+
+// WHAT: enable to run: 'npm run jpgavif'
+module.exports = {
+  jpgavif,
+};
+
+
 // WHAT: adds folder name + index, lowercasing the original file name.
 // starts from 10, to avoid single digit no. to the first 9 jpgs
 var index = 10;
@@ -96,6 +153,56 @@ gulp.task('size_images', function (done) {
         width: 1024,
         quality: 44,
         progressive: true
+      }],
+    }, {
+      // global configuration for all images
+      errorOnEnlargement: false,
+      withMetadata: false,
+      withoutEnlargement: false,
+      //try this, sometimes doesn't work
+      //withoutChromaSubsampling: true
+    }))
+    // this is needed otherwise it outputs .jpeg, gosh...
+    .pipe(rename(function(fix) {
+      fix.extname = '.jpg';
+    }))
+    // puy jpgs ready in place for SSG to use
+    .pipe(gulp.dest('./_output/'));
+  done();
+});
+
+// Reponsive sizing w/ gulp4
+// NOTE: Does transfer folder and lowercase the jpgs names
+// OK!
+gulp.task('binocle', function (done) {
+  return gulp.src('./_input/_images_to_size/**/*.jpg')
+    .pipe(rename(function(fix) {
+       fix.basename = changeCase.lowerCase(fix.basename);
+     }))
+    .pipe(responsive({
+      '**/*.jpg': [{
+        width: 640,
+        quality: 61,
+        progressive: true,
+        sharper: true,
+        rename: {
+          suffix: '-640'
+        }
+      }, {
+        width: 1024,
+        quality: 66,
+        progressive: true,
+        rename: {
+          suffix: '-1024'
+        }
+      }, {
+        //fullHD
+        width: 1920,
+        quality: 71,
+        progressive: true,
+        rename: {
+          suffix: '-1920'
+        }
       }],
     }, {
       // global configuration for all images

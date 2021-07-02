@@ -1,6 +1,6 @@
 {
   "name": "grinder",
-  "version": "0.2.5",
+  "version": "0.3.0",
   "description": "image grinder",
   "main": "gulpfile.js",
   "devDependencies": {
@@ -9,19 +9,24 @@
     "gulp": "^4.0.0",
     "gulp-rename": "^2.0.0",
     "gulp-responsive": "^3.0.1",
-    "svgo": "^1.3.2",
+    "gulp-sharp-responsive": "^0.1.0",
+    "svgo": "^2.3.1",
     "yargs-parser": ">=13.1.2"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "jpgavif": "gulp jpgavif",
+    "test": "avif_test"
   },
   "keywords": [
-    "image processor automator"
+    "image processor automator, avif"
   ],
   "repository": {
     "type": "git",
     "url": "git@github.com:toybreaker/grinder.git"
   },
   "author": "toybreaker",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "sharp": "^0.28.3"
+  }
 }
