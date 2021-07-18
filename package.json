@@ -1,18 +1,8 @@
 {
   "name": "grinder",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "image grinder",
   "main": "gulpfile.js",
-  "devDependencies": {
-    "change-case-all": "^1.0.12",
-    "del": "^5.1.0",
-    "gulp": "^4.0.0",
-    "gulp-rename": "^2.0.0",
-    "gulp-responsive": "^3.0.1",
-    "gulp-sharp-responsive": "^0.1.0",
-    "svgo": "^2.3.1",
-    "yargs-parser": ">=13.1.2"
-  },
   "scripts": {
     "jpgavif": "gulp jpgavif",
     "test": "avif_test"
@@ -27,6 +17,14 @@
   "author": "toybreaker",
   "license": "ISC",
   "dependencies": {
-    "sharp": "^0.28.3"
+    "sharp": "^0.28.3",
+    "change-case-all": "^1.0.12",
+    "del": "^5.1.0",
+    "gulp": "^4.0.0",
+    "gulp-rename": "^2.0.0",
+    "gulp-responsive": "^3.0.1",
+    "gulp-sharp-responsive": "^0.1.0",
+    "svgo": "^2.3.1",
+    "yargs-parser": ">=13.1.2"
   }
 }

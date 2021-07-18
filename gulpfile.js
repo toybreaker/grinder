@@ -7,7 +7,8 @@ var responsive   = require('gulp-responsive');
 var del          = require('del');
 
 
-// testing AVIF genaration (not working)
+// testing AVIF genaration (working)
+// usage: 'gulp jpgavif'
 const { src, dest } = require("gulp");
 const sharpResponsive = require("gulp-sharp-responsive");
 
@@ -17,48 +18,58 @@ const jpgavif = () => src("./_input/_images_to_size/**/*.jpg")
       // jpeg
       { width: 640,
         format: "jpeg",
+        jpegOptions: { quality: 55, progressive: true },
         rename: { suffix: "-640" }
       },{
         width: 880,
         format: "jpeg",
+        jpegOptions: { quality: 44, progressive: true },
         rename: { suffix: "-880" }
       },{
         width: 1024,
         format: "jpeg",
+        jpegOptions: { quality: 44, progressive: true },
         rename: { suffix: "-1024" }
       },{
         width: 1920,
         format: "jpeg",
+        jpegOptions: { quality: 33, progressive: true },
         rename: { suffix: "-1920" }
       },{
         width: 1024,
-        format: "jpeg"
+        format: "jpeg",
+        jpegOptions: { quality: 44, progressive: true }
       },
       // avif
       { width: 640,
         format: "avif",
+        avifOptions: { quality: 40, chromaSubsampling: '4:4:4' },
         rename: { suffix: "-640" }
       },{
         width: 880,
         format: "avif",
+        avifOptions: { quality: 40, chromaSubsampling: '4:4:4' },
         rename: { suffix: "-880" }
       },{
         width: 1024,
         format: "avif",
+        avifOptions: { quality: 40, chromaSubsampling: '4:4:4' },
         rename: { suffix: "-1024" }
       },{
         width: 1920,
         format: "avif",
+        avifOptions: { quality: 40, chromaSubsampling: '4:4:4' },
         rename: { suffix: "-1920" }
       },{
         width: 1024,
-        format: "avif"
+        format: "avif",
+        avifOptions: { quality: 40, chromaSubsampling: '4:4:4' }
       }
     ]
   }))
   .pipe(dest("./_output/"));
 
-// WHAT: enable to run: 'npm run jpgavif'
+// WHAT: enable to run: 'gulp jpgavif'
 module.exports = {
   jpgavif,
 };

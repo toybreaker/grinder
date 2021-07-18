@@ -6,6 +6,8 @@ Image processor that outputs responsive image sets to use with _srcset_
 
 Currently using:
 
+- [gulp-sharp-responsive](https://github.com/khalyomede/gulp-sharp-responsive)
+
 - [gulp-responsive](https://github.com/mahnunchik/gulp-responsive)
 
 - [gulp-rename](https://github.com/hparra/gulp-rename)
@@ -182,6 +184,22 @@ Output into ```_input/_images_to_size/```.
 
 ```sh
 gulp lower
+```
+
+---
+# AVIF
+---
+
+## **(jpgavif)** Produce .JPG & .AVIF images sized 640, 880, 1024, 1920
+
+**WHAT:**
+Produce sized images and lowercase the file names. Output also one image with no suffix, named as THE original file.
+
+**HOW:**
+Put images into ```_input/_images_to_size/``` then run:
+
+```sh
+gulp jpgavif
 ```
 
 
