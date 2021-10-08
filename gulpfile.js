@@ -23,7 +23,7 @@ const jpgavif = () => src("./_input/_images_to_size/**/*.jpg")
       },{
         width: 880,
         format: "jpeg",
-        jpegOptions: { quality: 44, progressive: true },
+        jpegOptions: { quality: 55, progressive: true },
         rename: { suffix: "-880" }
       },{
         width: 1024,
@@ -33,37 +33,37 @@ const jpgavif = () => src("./_input/_images_to_size/**/*.jpg")
       },{
         width: 1920,
         format: "jpeg",
-        jpegOptions: { quality: 33, progressive: true },
+        jpegOptions: { quality: 44, progressive: true },
         rename: { suffix: "-1920" }
       },{
         width: 1024,
         format: "jpeg",
         jpegOptions: { quality: 44, progressive: true }
       },
-      // avif
+      // avif - for higher quality use { quality: 40, chromaSubsampling: '4:4:4' }
       { width: 640,
         format: "avif",
-        avifOptions: { quality: 40, chromaSubsampling: '4:4:4' },
+        avifOptions: { quality: 45 },
         rename: { suffix: "-640" }
       },{
         width: 880,
         format: "avif",
-        avifOptions: { quality: 40, chromaSubsampling: '4:4:4' },
+        avifOptions: { quality: 45 },
         rename: { suffix: "-880" }
       },{
         width: 1024,
         format: "avif",
-        avifOptions: { quality: 40, chromaSubsampling: '4:4:4' },
+        avifOptions: { quality: 45 },
         rename: { suffix: "-1024" }
       },{
         width: 1920,
         format: "avif",
-        avifOptions: { quality: 40, chromaSubsampling: '4:4:4' },
+        avifOptions: { quality: 45 },
         rename: { suffix: "-1920" }
       },{
         width: 1024,
         format: "avif",
-        avifOptions: { quality: 40, chromaSubsampling: '4:4:4' }
+        avifOptions: { quality: 45 }
       }
     ]
   }))
@@ -88,8 +88,8 @@ gulp.task('curatename', function (done) {
     // prefix w/ folder name + suffix w/ index (starting at 10!)
     path.basename =  (path.dirname + '-' + path.basename + '-' + index++);
   }))
-  // output to _images_to_process folder for next step
-  .pipe(gulp.dest('./_output/'));
+  // output to _images_to_size folder for next step
+  .pipe(gulp.dest('./_input/_images_to_size/'));
 });
 
 // WHAT: delete the original file name + name them using folder name + index .
@@ -102,8 +102,8 @@ gulp.task('rename_images', function (done) {
     // prefix w/ folder name + suffix w/ index (starting at 10!)
     path.basename =  (path.dirname + '-' + index++);
   }))
-  // output to _images_to_process folder for next step
-  .pipe(gulp.dest('./_output/'));
+  // output to _images_to_size folder for next step
+  .pipe(gulp.dest('./_input/_images_to_size/'));
 });
 
 // WHAT: delete the original file name + name them using index.
@@ -116,8 +116,8 @@ gulp.task('rename_simple', function (done) {
     // prefix w/ folder name + suffix w/ index (starting at 10!)
     path.basename =  (index++);
   }))
-  // output to _images_to_process folder for next step
-  .pipe(gulp.dest('./_output/'));
+  // output to _images_to_size folder for next step
+  .pipe(gulp.dest('./_input/_images_to_size/'));
 });
 
 // Reponsive sizing w/ gulp4
