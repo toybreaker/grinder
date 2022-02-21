@@ -21,6 +21,12 @@ _Note:_ gulp-responsive depends on [sharp](https://github.com/lovell/sharp). Sha
 
 **How to use it?**
 
+### Install M1 Mac's Sharp version
+
+```sh
+npm install --arch=arm64 sharp
+```
+
 ### Install node dependencies into project's local dir.
 
 ```sh
