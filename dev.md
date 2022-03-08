@@ -1,16 +1,14 @@
-# Grinder
----
----
-![eat my images, you photoshop alternative!](/piranha.png)
----
+# GRINDER
 
----
+![EAT MY IMAGES, YOU PHOTOSHOP ALTERNATIVE!](/piranha.png)
+
+
+
+## WHAT
+
 Image processor that outputs responsive image sets to use with _srcset_
----
 
----
-## Currently using:
----
+Currently using:
 
 - [gulp-sharp-responsive](https://github.com/khalyomede/gulp-sharp-responsive)
 
@@ -22,15 +20,16 @@ Image processor that outputs responsive image sets to use with _srcset_
 
 - [change-case-all](https://github.com/btxtiger/change-case-all)
 
----
+## NOTE
+
 _Note:_ gulp-responsive depends on [sharp](https://github.com/lovell/sharp). Sharp is one of the fastest Node.js modules for resizing JPEG, PNG, WebP and TIFF images.
----
 
----
-## INSTALL
----
 
-### M1 Mac Silicon Sharp version
+# HOW
+
+**How to use it?**
+
+### Install M1 Mac's Sharp version
 
 ```sh
 npm install --arch=arm64 sharp
