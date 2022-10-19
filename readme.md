@@ -1,16 +1,13 @@
 # Grinder
----
----
-![eat my images, you photoshop alternative!](/piranha.png)
----
 
----
-Image processor that outputs responsive image sets to use with _srcset_
----
+![eat my images, you photoshop alternative!](./piranha.png)
 
----
+
+## Responsive Image Generator for _srcset_
+
+
+
 ## Currently using:
----
 
 - [gulp-sharp-responsive](https://github.com/khalyomede/gulp-sharp-responsive)
 

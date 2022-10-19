@@ -94,10 +94,10 @@ gulp.task('curatename', function (done) {
 
 // WHAT: delete the original file name + name them using folder name + index .
 // to avoid single digit no. to the first 9 jpgs, start from 10, intead of 0
-var index = 0;
+var index = '00';
 gulp.task('rename_images', function (done) {
   // put image folders w/ proper name into _images_to_rename
-  return gulp.src('./_input/_images_to_rename/**/*.jpg')
+  return gulp.src('./_input/_images_to_rename/**/**.jpg')
   .pipe(rename(function (path) {
     // prefix w/ folder name + suffix w/ index (starting at 10!)
     path.basename =  (path.dirname + '-' + index++);
@@ -105,6 +105,24 @@ gulp.task('rename_images', function (done) {
   // output to _images_to_size folder for next step
   .pipe(gulp.dest('./_input/_images_to_size/'));
 });
+
+
+
+
+
+// NEW
+// rename via a fixed object
+gulp.src("./_input/_images_to_rename/**/**.jpg", { base: process.cwd() })
+  .pipe(rename({
+    dirname: "../_images_to_size/",
+    basename: "CENTER",
+    prefix: "BEFORE-",
+    suffix: "-AFTER",
+    extname: ".jpg"
+  }))
+  .pipe(gulp.dest("./_input/_images_to_size/")); // ./dist/main/text/ciao/bonjour-aloha-hola.md
+
+
 
 // WHAT: delete the original file name + name them using index.
 // to avoid single digit no. to the first 9 jpgs, start from 10, intead of 0 or 1
