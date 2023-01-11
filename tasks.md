@@ -1,6 +1,11 @@
+![eat my images, you photoshop alternative!](./piranha.png)
+
+
 # Grinder
 
-![eat my images, you photoshop alternative!](/piranha.png)
+
+[TASKS](tasks.md) | [AVIF](avif.md) | [DEV](dev.md) | [BASH](bash.md) | [SVGO](svg.md) | [README](readme.md)
+
 
 ---
 # Tasks without deleting originals.
@@ -163,21 +168,3 @@ gulp lower
 
 
 
-
----
-## INFO
----
-
----
-[TASKS](tasks.md)
----
-[AVIF](avif.md)
----
-[DEV](dev.md)
----
-[BASH](bash.md)
----
-[SVGO](svg.md)
----
-[README](readme.md)
----

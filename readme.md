@@ -19,13 +19,13 @@
 
 - [change-case-all](https://github.com/btxtiger/change-case-all)
 
----
+
 _Note:_ gulp-responsive depends on [sharp](https://github.com/lovell/sharp). Sharp is one of the fastest Node.js modules for resizing JPEG, PNG, WebP and TIFF images.
 ---
 
----
+
 ## INSTALL
----
+
 
 ### M1 Mac Silicon Sharp version
 
@@ -39,11 +39,9 @@ npm install --arch=arm64 sharp
 npm install
 ```
 
----
-## INFO
----
 
----
+## INFO
+
 [TASKS](tasks.md)
 ---
 [AVIF](avif.md)
