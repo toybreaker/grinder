@@ -60,7 +60,7 @@ To avoid single digit no. for the first 9 jpgs, set ```var index = 10;``` in the
 Put images into ```_input/_images_to_rename/``` then run:
 
 ```sh
-gulp rename_images
+gulp rename_simple
 ```
 
 
@@ -120,7 +120,7 @@ gulp size_2kvhi
 ```
 
 
-## **(binocle)** hi-quality 640, 1024, 1920 imges for demanding clients
+## **(binocle)** hi-quality 640, 1024, 1920 images for quality clients
 
 **WHAT:**
 Copy images to process into ```_input/_images_to_size/```.
