@@ -1,6 +1,6 @@
 # Grinder
 
-![eat my images, you photoshop alternative!](./piranha.png)
+![eat my images, sorry photoshop, you redundant!](./piranha.png)
 
 
 ## Responsive Image Generator for _srcset_

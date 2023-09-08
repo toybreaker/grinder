@@ -99,7 +99,7 @@ gulp.task('rename_images', function (done) {
   // put image folders w/ proper name into _images_to_rename
   return gulp.src('./_input/_images_to_rename/**/**.jpg')
   .pipe(rename(function (path) {
-    // prefix w/ folder name + suffix w/ index (starting at 10!)
+    // prefix w/ folder name + suffix w/ index (starting at [var index]!)
     path.basename =  (path.dirname + '-' + index++);
   }))
   // output to _images_to_size folder for next step
@@ -389,7 +389,39 @@ gulp.task('size_2kvhi', function (done) {
   done();
 });
 
-
+//HIGHEST RESOLUTION
+gulp.task('size_4K', function (done) {
+  return gulp.src('./_input/_images_to_size/**/*.*')
+    .pipe(rename(function(fix) {
+       fix.basename = changeCase.lowerCase(fix.basename);
+     }))
+     .pipe(rename(function(fix) {
+       fix.extname = '.jpg';
+     }))
+    .pipe(responsive({
+      '**/*.jpg': [{
+        //single image
+        width: 3840,
+        quality: 39,
+        sharper: true,
+        progressive: true
+      }],
+    }, {
+      // global configuration for all images
+      errorOnEnlargement: false,
+      withMetadata: false,
+      withoutEnlargement: false,
+      //try this, sometimes doesn't work
+      withoutChromaSubsampling: true
+    }))
+    // this is needed otherwise it outputs .jpeg, gosh...
+    .pipe(rename(function(fix) {
+      fix.extname = '.jpg';
+    }))
+    // DESTINATION
+    .pipe(gulp.dest('./_output/'));
+  done();
+});
 
 // Rename all to lowercase w/ gulp4
 // OK! (is this used in other tasks? ops, i forgot!)
