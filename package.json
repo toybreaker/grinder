@@ -1,6 +1,6 @@
 {
   "name": "grinder",
-  "version": "0.5.0",
+  "version": "1.0.0",
   "description": "image grinder",
   "main": "gulpfile.js",
   "scripts": {
